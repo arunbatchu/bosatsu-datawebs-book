@@ -1,0 +1,59 @@
+A good architecture is not created in a vacuum. All design decisions at the architectural level should be made within the context of the functional, behavioral, and social requirements of the system being designed, which is a principle that applies equally to both software architecture and the traditional field of building architecture.
+
+At least some of this behavior within the software industry is due to a lack of understanding of why a given set of architectural constraints is useful. In other words, the reasoning behind good software architectures is not apparent to designers when those architectures are selected for reuse.
+
+When given a name, a coordinated set of architectural constraints becomes an architectural style.
+
+The Web is intended to be an Internet-scale distributed hypermedia system, which means considerably more than just geographical dispersion. The Internet is about interconnecting information networks across organizational boundaries. Suppliers of information services must be able to cope with the demands of anarchic scalability and the independent deployment of software components.
+
+Distributed hypermedia provides a uniform means of accessing services through the embedding of action controls within the presentation of information retrieved from remote sites. An architecture for the Web must therefore be designed with the context of communicating large-grain data objects across high-latency networks and multiple trust boundaries
+
+REST provides a set of architectural constraints that, when applied as a whole, emphasizes scalability of component interactions, generality of interfaces, independent deployment of components, and intermediary components to reduce interaction latency, enforce security, and encapsulate legacy systems.
+
+Berners-Lee [20] writes that the “Web’s major goal was to be a shared information space through which people and machines could communicate.”
+
+What was needed was a way for people to store and structure their own information, whether permanent or ephemeral in nature, such that it could be usable by themselves and others, and to be able to reference and structure the information stored by others so that it would not be necessary for everyone to keep and maintain local copies.
+
+The challenge was to build a system that would provide a universally consistent interface to 66 this structured information, available on as many platforms as possible, and incrementally deployable as new people and organizations joined the project.
+
+For authors, the primary requirement was that partial availability of the overall system must not prevent the authoring of content.
+
+While simplicity makes it possible to deploy an initial implementation of a distributed system, extensibility allows us to avoid getting stuck forever with the limitations of what was deployed.
+
+A system intending to be as long-lived as the Web must be prepared for change.
+
+Most software systems are created with the implicit assumption that the entire system is under the control of one entity, or at least that all entities participating within a system are acting towards a common goal and not at cross-purposes.
+
+Anarchic scalability refers to the need for architectural elements to continue operating when they are subjected to an unanticipated load, or when given malformed or maliciously constructed data, since they may be communicating with elements outside their organizational control.
+
+The anarchic scalability requirement applies to all architectural elements. Clients cannot be expected to maintain knowledge of all servers. Servers cannot be expected to retain knowledge of state across requests. Hypermedia data elements cannot retain “back69 pointers,” an identifier for each data element that references them, since the number of references to a resource is proportional to the number of people interested in that information.
+
+Multiple organizational boundaries implies that multiple trust boundaries could be present in any communication.
+
+Separation of concerns is the principle behind the client-server constraints.
+
+the separation allows the components to evolve independently
+
+[133].
+
+The central feature that distinguishes the REST architectural style from other network- based styles is its emphasis on a uniform interface between components (Figure 5-6). By applying the software engineering principle of generality to the component interface, the overall system architecture is simplified and the visibility of interactions is improved. Implementations are decoupled from the services they provide, which encourages independent evolvability. The trade-off, though, is that a uniform interface degrades efficiency, since information is transferred in a standardized form rather than one which is specific to an application’s needs.
+
+independent evolvability. The trade-off, though, is that a uniform interface degrades efficiency, since information is transferred in a standardized form rather than one which is specific to an application’s needs. The REST interface is designed to be efficient for large- grain hypermedia data transfer, optimizing for the common case of the Web, but resulting in an interface that is not optimal for other forms of architectural interaction.
+
+In order to obtain a uniform interface, multiple architectural constraints are needed to guide the behavior of components. REST is defined by four interface constraints: identification of resources; manipulation of resources through representations; self- descriptive messages; and, hypermedia as the engine of application state. These constraints will be discussed in Section 5.2.
+
+The primary disadvantage of layered systems is that they add overhead and latency to the processing of data, reducing user-perceived performance
+
+hypermedia interaction can each be processed like a data-flow network, with filter components selectively applied to the data stream in order to transform the content as it passes
+
+s [26].
+
+Within REST, intermediary components can actively transform the content of messages because the messages are self-descriptive and their semantics are visible to intermediaries.
+
+REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements
+
+For example, the “authors’ preferred version” of an academic paper is a mapping whose value changes over time, whereas a mapping to “the paper published in the proceedings of conference X” is static
+
+This abstract definition of a resource enables key features of the Web architecture. First, it provides generality by encompassing many sources of information without artificially distinguishing them by type or implementation. Second, it allows late binding of the reference to a representation, enabling content negotiation to take place based on characteristics of the request. Finally, it allows an author to reference the concept rather than some singular representation of that concept, thus removing the need to change all existing links whenever the representation changes
+
+REST constrains messages between components to be self-descriptive in order to support intermediate processing of interactions.

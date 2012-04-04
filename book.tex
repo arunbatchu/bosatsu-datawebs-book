@@ -1,0 +1,33 @@
+\documentclass{memoir}
+
+\input{preamble2}
+
+\setcounter{secnumdepth}{2}
+
+%\makeindexl
+
+\begin{document}
+
+ \frontmatter
+    \input{title2}
+ \tableofcontents
+ \listoftables
+ \listoffigures	
+ \mainmatter
+	\include{ch01}
+	\include{ch02}
+	\include{ch03}
+	\include{ch04}
+	\include{ch05}
+	\include{ch06}
+	\include{ch07}
+	\include{ch08}
+	\include{ch09}
+	\include{ch10}
+	\include{ch11}
+	
+ \backmatter
+    \nocite{*}
+    \bibliographystyle{plainnat}
+    \bibliography{references}
+\end{document}

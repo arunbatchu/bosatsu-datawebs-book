@@ -1,0 +1,87 @@
+\usepackage[a5paper]{geometry}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{natbib}
+\usepackage{tocbibind}
+\usepackage{tikz}
+
+
+
+
+
+\usepackage{CJKutf8}
+
+\ifpdf
+  \usepackage{pdfcolmk}
+\fi
+%% check if using xelatex rather than pdflatex
+\ifxetex
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+%%\usepackage{hyperref}
+%% drawing package
+\usepackage{tikz}
+%% for dingbats
+\usepackage{pifont}
+\providecommand{\HUGE}{\Huge}% if not using memoir
+\newlength{\drop}% for my convenience
+%% specify the Webomints family
+%%\newcommand*{\wb}[1]{\fontsize{#1}{#2}\usefont{U}{webo}{xl}{n}}
+%% select a (FontSite) font by its font family ID
+\newcommand*{\FSfont}[1]{\fontencoding{T1}\fontfamily{#1}\selectfont}
+%% if you don’t have the FontSite fonts either \renewcommand*{\FSfont}[1]{}
+%% or use your own choice of family.
+%% select a (TeX Font) font by its font family ID
+\newcommand*{\TXfont}[1]{\fontencoding{T1}\fontfamily{#1}\selectfont}
+%% Generic publisher’s logo
+\newcommand*{\plogo}{\fbox{$\mathcal{PL}$}}
+%% Some shades
+\definecolor{Dark}{gray}{0.2}
+\definecolor{MedDark}{gray}{0.4}
+\definecolor{Medium}{gray}{0.6}
+\definecolor{Light}{gray}{0.8}
+%%%% Additional font series macros
+\makeatletter
+%%%% light series
+%% e.g., kernel doc, section s: line 12 or thereabouts
+\DeclareRobustCommand\ltseries
+  {\not@math@alphabet\ltseries\relax
+   \fontseries\ltdefault\selectfont}
+%% e.g., kernel doc, section t: line 32 or thereabouts
+\newcommand{\ltdefault}{l}
+%% e.g., kernel doc, section v: line 19 or thereabouts
+\DeclareTextFontCommand{\textlt}{\ltseries}
+% heavy(bold) series
+\DeclareRobustCommand\hbseries
+  {\not@math@alphabet\hbseries\relax
+   \fontseries\hbdefault\selectfont}
+\newcommand{\hbdefault}{hb}
+\DeclareTextFontCommand{\texthb}{\hbseries}
+\makeatother
+
+\newcommand*{\titlePP}{\begingroup% Printing Poetry
+\FSfont{5jr}% FontSite Jenson Recut (Centaur)
+\drop=0.1\textheight
+\vspace*{\drop}
+\begin{raggedleft}
+{\HUGE Building Data Webs}\\[\baselineskip]
+{With REST, RDF and SPARQL}\\[1.1\baselineskip]
+
+{\Large Brian Sletten}\par
+\end{raggedleft}
+\vfill
+\begin{center}
+{\large Addison-Wesley 2012}
+\end{center}
+\vspace*{\drop}
+%\mbox{}
+\endgroup}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.85]{beramono}
+\usepackage{listings}
+\lstset{language=SQL,morekeywords={PREFIX,java,rdf,rdfs,url}}
